@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Countdown: Aisha & Her Beloved</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS STYLING */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Animated Background */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 90%;
+            width: 600px;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Countdown Box Layout */
+        #countdown {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #d63384; /* Deep Pink Text */
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .time-box { min-width: 60px; padding: 10px; }
+            .number { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <p class="subtitle">The Wedding Ceremony Of</p>
+        <h1>Aisha Hassan Mashi <br>&<br> Her Beloved</h1>
+        
+        <div id="countdown">
+            <div class="time-box">
+                <span class="number" id="days">00</span>
+                <span class="label">Days</span>
+            </div>
+            <div class="time-box">
+                <span class="number" id="hours">00</span>
+                <span class="label">Hours</span>
+            </div>
+            <div class="time-box">
+                <span class="number" id="minutes">00</span>
+                <span class="label">Minutes</span>
+            </div>
+            <div class="time-box">
+                <span class="number" id="seconds">00</span>
+                <span class="label">Seconds</span>
+            </div>
+        </div>
+        
+        <p style="margin-top: 20px; font-size: 1rem;">In Shaa Allah</p>
+    </div>
+
+    <script>
+        //JAVASCRIPT LOGIC
+        
+        // ******************************************************
+        // DATE UPDATED: March 27, 2026 at 1:30 PM
+        // ******************************************************
+        const weddingDate = new Date("March 27, 2026 13:30:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            // Calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            // If the countdown is finished
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "<h2 style='color:#d63384'>Alhamdulillah! It's the Big Day!</h2>";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
