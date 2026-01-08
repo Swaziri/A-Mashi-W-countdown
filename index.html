@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Countdown: Aisha & Her Beloved</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         /* CSS STYLING */
         body {
@@ -15,84 +15,97 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            /* Simple, elegant soft background */
+            background-color: #f7f7f7; 
             font-family: 'Poppins', sans-serif;
-            color: #fff;
+            color: #333; /* Dark grey text for readability */
             text-align: center;
         }
 
-        /* Animated Background */
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .container {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Soft shadow */
+            max-width: 90%;
+            width: 500px;
+            border-top: 5px solid #d4af37; /* Gold accent line */
         }
 
-        .container {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            max-width: 90%;
-            width: 600px;
+        p.subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 10px;
         }
 
         h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-size: 3rem;
+            margin: 0;
+            color: #2c3e50;
+            line-height: 1.2;
         }
 
-        p.subtitle {
+        /* NEW: Date and Time Styling */
+        .event-details {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fdfbf7;
+            border-radius: 8px;
+            border: 1px dashed #d4af37;
+        }
+
+        .event-details h2 {
+            margin: 0;
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .event-details span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d4af37; /* Gold Color */
+            margin-top: 5px;
         }
 
         /* Countdown Box Layout */
         #countdown {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 15px;
+            justify-content: space-between;
+            margin-top: 20px;
         }
 
         .time-box {
-            background: rgba(255, 255, 255, 0.9);
-            color: #d63384; /* Deep Pink Text */
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 80px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            flex: 1;
+            margin: 0 5px;
+            padding: 10px 5px;
+            background: #2c3e50; /* Dark Blue/Grey background for boxes */
+            color: white;
+            border-radius: 5px;
         }
 
         .number {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
+            display: block;
         }
 
         .label {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            margin-top: 5px;
-            color: #555;
+            letter-spacing: 1px;
+            opacity: 0.8;
         }
 
         /* Responsive Design */
         @media (max-width: 600px) {
             h1 { font-size: 2.5rem; }
-            .time-box { min-width: 60px; padding: 10px; }
-            .number { font-size: 1.8rem; }
+            .event-details span { font-size: 1.2rem; }
+            .number { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -101,6 +114,11 @@
     <div class="container">
         <p class="subtitle">The Wedding Ceremony Of</p>
         <h1>Aisha Hassan Mashi <br>&<br> Her Beloved</h1>
+        
+        <div class="event-details">
+            <h2>Friday, 27th March 2026</h2>
+            <span>1:30 PM</span>
+        </div>
         
         <div id="countdown">
             <div class="time-box">
@@ -113,45 +131,43 @@
             </div>
             <div class="time-box">
                 <span class="number" id="minutes">00</span>
-                <span class="label">Minutes</span>
+                <span class="label">Mins</span>
             </div>
             <div class="time-box">
                 <span class="number" id="seconds">00</span>
-                <span class="label">Seconds</span>
+                <span class="label">Secs</span>
             </div>
         </div>
         
-        <p style="margin-top: 20px; font-size: 1rem;">In Shaa Allah</p>
+        <p style="margin-top: 25px; font-size: 0.9rem; color: #888;">In Shaa Allah</p>
     </div>
 
     <script>
         //JAVASCRIPT LOGIC
         
-        // ******************************************************
-        // DATE UPDATED: March 27, 2026 at 1:30 PM
-        // ******************************************************
+        // Target Date: March 27, 2026 at 1:30 PM
         const weddingDate = new Date("March 27, 2026 13:30:00").getTime();
 
         const timer = setInterval(function() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
-            // Calculations for days, hours, minutes and seconds
+            // Calculations
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display the result
+            // Display
             document.getElementById("days").innerText = days;
             document.getElementById("hours").innerText = hours;
             document.getElementById("minutes").innerText = minutes;
             document.getElementById("seconds").innerText = seconds;
 
-            // If the countdown is finished
+            // When finished
             if (distance < 0) {
                 clearInterval(timer);
-                document.getElementById("countdown").innerHTML = "<h2 style='color:#d63384'>Alhamdulillah! It's the Big Day!</h2>";
+                document.getElementById("countdown").innerHTML = "<h3 style='color:#d4af37'>The Wedding is Today!</h3>";
             }
         }, 1000);
     </script>
